@@ -37,6 +37,11 @@ import EssentialLink from 'components/EssentialLink.vue';
 
 const linksList = [
   {
+    title: 'Home',
+    icon: 'home',
+    link: '/',
+  },
+  {
     title: 'Dashboard',
     icon: 'dashboard',
     link: '/dashboard',
