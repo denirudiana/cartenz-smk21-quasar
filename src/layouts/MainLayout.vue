@@ -11,7 +11,7 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title> Hotel App </q-toolbar-title>
+        <q-toolbar-title> HotelInsight </q-toolbar-title>
       </q-toolbar>
     </q-header>
 

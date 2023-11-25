@@ -10,9 +10,8 @@
     <!-- Dialog Create -->
     <q-dialog v-model="showCardCreate" persistent>
       <q-card style="width: 500px">
-        <q-toolbar class="bg-primary text-white">
+        <q-toolbar class="text-center">
           <q-toolbar-title>Create Data</q-toolbar-title>
-          <q-btn v-close-popup flat rounded icon="close"></q-btn>
         </q-toolbar>
 
         <q-card-section>
@@ -33,6 +32,8 @@
             class="q-mt-xl"
             @click="addData"
           />
+
+          <q-btn v-close-popup label="Back" class="q-mt-xl q-ml-sm"></q-btn>
         </q-card-section>
       </q-card>
     </q-dialog>
@@ -40,16 +41,19 @@
     <!-- Edit Dialog -->
     <q-dialog v-model="showCardEdit" persistent>
       <q-card style="width: 500px">
-        <q-toolbar class="bg-primary text-white">
+        <q-toolbar class="text-center">
           <q-toolbar-title>Edit Data</q-toolbar-title>
-          <q-btn v-close-popup flat rounded icon="close"></q-btn>
         </q-toolbar>
 
         <q-card-section>
           <!-- Data Input -->
-          <q-input v-model="input.name" label="Name" />
+          <q-input
+            v-model="input.name"
+            label="Name"
+            hint="example : Hotel Barawuri"
+          />
           <q-select
-            v-model="selection"
+            v-model="input.area"
             :options="options"
             label="Area"
           ></q-select>
@@ -57,46 +61,32 @@
             label="Submit"
             color="primary"
             class="q-mt-xl"
-            @click="editData()"
+            @click="editData"
           />
+
+          <q-btn v-close-popup label="Back" class="q-mt-xl q-ml-sm"></q-btn>
         </q-card-section>
       </q-card>
     </q-dialog>
 
-    <!-- Edit Dialog -->
-    <q-dialog v-model="showCardEdit" persistent>
+    <!-- Delete Dialog -->
+    <q-dialog v-model="popUpDelete" persistent>
       <q-card style="width: 500px">
-        <q-toolbar class="bg-primary text-white">
-          <q-toolbar-title>Edit Data</q-toolbar-title>
-          <q-btn v-close-popup flat rounded icon="close"></q-btn>
-        </q-toolbar>
-
-        <q-card-section>
-          <!-- Data Input -->
-          <q-input v-model="input.name" label="Name" />
-          <q-select
-            v-model="selection"
-            :options="options"
-            label="Area"
-          ></q-select>
-          <q-btn
-            label="Submit"
-            color="primary"
-            class="q-mt-xl"
-            @click="editData()"
-          />
-        </q-card-section>
-      </q-card>
-    </q-dialog>
-
-    <!-- Dialog Delete -->
-    <q-dialog v-model="popUpDelete" style="width: 50px">
-      <q-card>
-        <q-toolbar>
+        <q-toolbar class="text-center">
           <q-toolbar-title>Are You Sure?</q-toolbar-title>
-          <q-btn v-close-popup icon="cancel" flat rounded></q-btn>
         </q-toolbar>
-        <q-btn style="full-width flex-center" @click="deleteData()">Sure</q-btn>
+
+        <q-card-section>
+          <p>After this the selected data will be deleted. Are you sure?</p>
+          <q-btn
+            label="Delete"
+            color="negative"
+            class="q-mt-xl"
+            @click="deleteData"
+          />
+
+          <q-btn v-close-popup label="Back" class="q-mt-xl q-ml-sm"></q-btn>
+        </q-card-section>
       </q-card>
     </q-dialog>
 
@@ -135,6 +125,12 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { uid } from 'quasar';
+
+interface dataType {
+  id?: string;
+  name: string;
+  area: string;
+}
 
 export default defineComponent({
   name: 'TableComponent',
@@ -214,7 +210,7 @@ export default defineComponent({
     };
 
     // method untuk mendapatkan data
-    const deleteDataPopUp = (data) => {
+    const deleteDataPopUp = (data: dataType) => {
       dataTable.value = tableRows.value.findIndex((x) => x.id === data.id);
       popUpDelete.value = true;
     };
@@ -228,7 +224,7 @@ export default defineComponent({
     };
 
     // function untuk mengambil data saat tombol pada table di klik
-    const editDataPopUp = (data) => {
+    const editDataPopUp = (data: dataType) => {
       // console.log(data);
       // agar inputan saat di klik sudah muncul
       input.value.name = data.name;
