@@ -30,7 +30,7 @@
             label="Submit"
             color="primary"
             class="q-mt-xl"
-            @click="addData"
+            @click="addData()"
           />
 
           <q-btn v-close-popup label="Back" class="q-mt-xl q-ml-sm"></q-btn>
@@ -64,7 +64,12 @@
             @click="editData"
           />
 
-          <q-btn v-close-popup label="Back" class="q-mt-xl q-ml-sm"></q-btn>
+          <q-btn
+            v-close-popup
+            label="Back"
+            class="q-mt-xl q-ml-sm"
+            @click="clearData()"
+          ></q-btn>
         </q-card-section>
       </q-card>
     </q-dialog>
@@ -82,10 +87,15 @@
             label="Delete"
             color="negative"
             class="q-mt-xl"
-            @click="deleteData"
+            @click="deleteData()"
           />
 
-          <q-btn v-close-popup label="Back" class="q-mt-xl q-ml-sm"></q-btn>
+          <q-btn
+            v-close-popup
+            label="Back"
+            class="q-mt-xl q-ml-sm"
+            @click="clearData()"
+          ></q-btn>
         </q-card-section>
       </q-card>
     </q-dialog>
@@ -138,18 +148,17 @@ export default defineComponent({
     const showCardCreate = ref(false);
     const showCardEdit = ref(false);
     const popUpDelete = ref(false);
-
-    const selection = ref('');
-
-    const dataTable = ref(-1);
-
-    const options = [
+    const options = ref([
       'Jakarta Pusat',
       'Jakarta Selatan',
       'Jakarta Utara',
       'Jakarta Barat',
       'Bogor',
-    ];
+    ]);
+
+    const selection = ref(options.value[0]);
+
+    const dataTable = ref(-1);
 
     const tableColumns = [
       {
@@ -203,7 +212,7 @@ export default defineComponent({
       tableRows.value.push({
         id: uid(),
         name: createData.value.name,
-        area: selection.value,
+        area: createData.value.area,
       });
 
       showCardCreate.value = false;
@@ -228,7 +237,7 @@ export default defineComponent({
       // console.log(data);
       // agar inputan saat di klik sudah muncul
       input.value.name = data.name;
-      selection.value = data.area;
+      input.value.area = data.area;
 
       // menambah dataTable dengan tableRows yang sesuai
       dataTable.value = tableRows.value.findIndex((x) => x.id === data.id);
@@ -247,7 +256,16 @@ export default defineComponent({
         selection.value = input.value.area;
 
         showCardEdit.value = false;
+
+        clearData();
       }
+    };
+
+    const clearData = () => {
+      input.value.name = '';
+      input.value.area = selection.value;
+      createData.value.name = '';
+      createData.value.area = selection.value;
     };
 
     return {
@@ -265,6 +283,7 @@ export default defineComponent({
       options,
       selection,
       createData,
+      clearData,
     };
   },
 });
