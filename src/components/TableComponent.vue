@@ -26,6 +26,7 @@
             :options="options"
             label="Area"
           ></q-select>
+
           <q-btn
             label="Submit"
             color="primary"
@@ -214,6 +215,7 @@ export default defineComponent({
       area: selection.value,
     });
 
+    // Add Data
     // method untuk membuat data baru
     const addData = () => {
       tableRows.value.push({
@@ -222,7 +224,10 @@ export default defineComponent({
         area: createData.value.area,
       });
 
+      selection.value = createData.value.area;
+
       showCardCreate.value = false;
+      clearData();
     };
 
     // method untuk mendapatkan data
@@ -276,6 +281,7 @@ export default defineComponent({
     };
 
     return {
+      // rating,
       tableColumns,
       tableRows,
       showCardCreate,
