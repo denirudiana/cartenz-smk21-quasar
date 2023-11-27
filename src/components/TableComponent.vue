@@ -142,6 +142,13 @@ interface dataType {
   area: string;
 }
 
+interface tableType {
+  name: string;
+  label: string;
+  field: string;
+  align: 'center' | 'left' | 'right';
+}
+
 export default defineComponent({
   name: 'TableComponent',
   setup() {
@@ -160,7 +167,7 @@ export default defineComponent({
 
     const dataTable = ref(-1);
 
-    const tableColumns = [
+    const tableColumns: tableType[] = [
       {
         name: 'id',
         label: 'ID',

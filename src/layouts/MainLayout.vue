@@ -21,6 +21,7 @@
           v-for="link in essentialLinks"
           :key="link.title"
           v-bind="link"
+          class="items-center"
         />
       </q-list>
     </q-drawer>
@@ -50,6 +51,11 @@ const linksList = [
     title: 'Login',
     icon: 'login',
     link: '/login',
+  },
+  {
+    title: 'Setting',
+    icon: 'settings',
+    link: '/setting',
   },
 ];
 
