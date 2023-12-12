@@ -8,7 +8,7 @@
         <div class="q-gutter-md">
           <q-input v-model="email" label="Email" />
           <q-input v-model="password" label="Password" type="password" />
-          <q-btn label="Login" color="primary" />
+          <q-btn label="Login" color="primary" to="/dashboard" />
           <q-btn label="Register" class="text-black" to="/register" />
         </div>
       </q-card-section>

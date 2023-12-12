@@ -240,6 +240,7 @@ export default defineComponent({
     const deleteData = () => {
       if (dataTable.value !== -1) {
         tableRows.value.splice(dataTable.value, 1);
+
         popUpDelete.value = false;
       }
     };

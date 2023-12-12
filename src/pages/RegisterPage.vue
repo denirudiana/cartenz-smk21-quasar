@@ -9,11 +9,7 @@
           <q-input v-model="username" label="Username" />
           <q-input v-model="email" label="Email" />
           <q-input v-model="password" label="Password" type="password" />
-          <q-btn
-            label="Register"
-            class="text-white bg-primary"
-            to="/register"
-          />
+          <q-btn label="Register" class="text-white bg-primary" to="/login" />
         </div>
       </q-card-section>
     </q-card>

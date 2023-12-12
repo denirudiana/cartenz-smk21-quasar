@@ -52,11 +52,6 @@ const linksList = [
     icon: 'login',
     link: '/login',
   },
-  {
-    title: 'Setting',
-    icon: 'settings',
-    link: '/setting',
-  },
 ];
 
 export default defineComponent({
