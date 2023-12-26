@@ -22,7 +22,7 @@
             hint="example : Hotel Barawuri"
           />
           <q-select
-            v-model="selection"
+            v-model="createData.area"
             :options="options"
             label="Area"
           ></q-select>
@@ -164,7 +164,7 @@ export default defineComponent({
       'Bogor',
     ]);
 
-    const selection = ref(options.value[0]);
+    let selection = ref(options.value[0])
 
     const dataTable = ref(-1);
 
