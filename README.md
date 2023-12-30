@@ -9,6 +9,10 @@ Developed by Kelompok 6
 2. Larefza Ikhsan Adli
 3. Muhammad Rafi
 
+# Demo-App
+
+https://hotel-cartenz-kelompok6.vercel.app
+
 ## Install the dependencies
 
 ```bash
