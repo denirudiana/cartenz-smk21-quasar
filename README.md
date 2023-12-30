@@ -1,5 +1,5 @@
 
-# Hotel Manangement App
+# Hotel Management App
 
 Developed by Kelompok 6
 
