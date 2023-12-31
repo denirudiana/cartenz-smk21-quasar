@@ -1,0 +1,10 @@
+// app global css in SCSS form
+
+.activeItem {
+  color: rgb(0, 0, 0);
+  text-decoration: underline;
+  background-color: #ffffff;
+}
+body {
+  background: linear-gradient(rgb(255, 0, 242), cyan);
+}
