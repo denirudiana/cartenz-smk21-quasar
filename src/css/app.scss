@@ -1,0 +1,15 @@
+// app global css in SCSS form
+
+.activeItem{
+    color: white;
+    background-color: rgba(60, 60, 60, 0.46);
+    // background-color: rgba(6,32,56,0.5);
+}
+
+body{
+  font-family: 'Poppins', sans-serif;
+
+}
+// body {
+//     background: linear-gradient(to bottom, rgb(60, 70, 180), rgba(255, 255, 255, 0.37));
+// };

@@ -1,0 +1,35 @@
+// This is just an example,
+// so you can safely delete all default props below
+
+export default {
+  title: 'ARCHIPELAGO',
+  failed: 'Gagal',
+  success: 'Berhasil',
+  addHotel: 'Tambah Hotel',
+  addNote: 'Tambah Note',
+  editNote: 'Edit Hotel',
+  deleteNote: 'Hapus Hotel',
+  HotelName: 'Nama Hotel',
+  DistrictName: 'Daerah',
+  HotelNotEmpty: 'Nama Hotel tidak boleh kosong',
+  DistrictNotEmpty: 'Nama Daerah tidak boleh kosong',
+  confirmDeleteNote: 'Apakah Anda yakin ingin menghapus hotel ini',
+  noLabel: 'Nomor',
+  createdStatusLabel: 'Status Hotel',
+  actionLabel: 'Aksi',
+  noColumn: 'Nomor',
+  hotelColumn: 'Nama Hotel',
+  districtColumn: 'Nama Hotel',
+  createdAtColumn: 'Dibuat Pada',
+  statusColumn: 'Status Hotel',
+  actionColumn: 'Aksi',
+  headline: 'Temukan Hotel Terdekat!',
+  columns : {
+    no: 'Nomor',
+    HotelName: 'Nama Hotel',
+    DistrictName: 'Nama Daerah',
+    created_at: 'Dibuat pada',
+    status: 'Status Hotel',
+    action: 'Aksi',
+  }
+};
